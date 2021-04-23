@@ -1,0 +1,26 @@
+<template id="template">
+    <div class="bg-green-400 flex p-2 pr-12 border items-center">
+        <img src="electronc-logo-no-bg.png" class="h-12" >
+        <div class="px-2"><a href="#">Elec'Tronc</a></div>
+    
+        <div class="flex flex-grow justify-end border">
+            <div class="px-2"><a href="#donnees">Données</a></div>
+            <div class="px-2"><a href="#contact">Contact</a></div>
+    
+        </div>
+    </div>
+</template>
+<script>
+    var Navbar = document.registerElement('navbar', {
+        prototype: Object.create(HTMLElement.prototype, {
+            createdCallback: {
+                value: function() {
+                    var root = this.createShadowRoot();
+                    var template = document.querySelector('#template')
+                    var clone = document.importNode(template.content)
+                    root.appendChild(clone)
+                }
+            }
+        })
+    })
+</script>
